@@ -1,1 +1,23 @@
-<p>post works!</p>
+<div *ngIf="formError" >{{ formError }}</div>
+<div class="modal" id="staticBackdrop" data-backdrop="static" role="dialog">
+    <div class="modal-dialog w-100 mx-auto" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="title" id="staticBackdropLabel">Create or Update Post</h3>
+        </div>
+        <div>
+            <form  (submit)="formSubmit()" class="" method="get" id="postId">
+                Id:<input name="postId" type="text" [(ngModel)]="body.id"/><br/>
+                Title:<input name="title" type="text" [(ngModel)]="body.title"/><br/>
+                Body:<textarea name="body" rows="4" cols="50" [(ngModel)]="body.body"></textarea><br/>
+                UserId:<input name="userId" type="text" [(ngModel)]="body.userId"/><br/>
+            </form>
+        </div>
+        <div class="footer">
+          <button class="btn-form"  id="cancelMessage" data-dismiss="modal">Cancel</button>
+          <button class="btn-form" (click)="createPost()" id="sendMessage" type="submit" form="postId" >Create Post</button>
+          <button class="btn-form" (click)="updatePost()" id="sendMessage" type="submit" form="postId" >Update Post</button>
+        </div>
+      </div>
+    </div>
+  </div>

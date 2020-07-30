@@ -3,9 +3,8 @@
     <button class="btn" (click)="makeItSearchable()">See one Particular Post</button>
     <button class="btn" (click)="visibleList()">List Posts</button>
     <button class="btn" (click)="visibleAddPost()">Add Post</button>
-    <button class="btn">Update Post</button>
+    <button class="btn" (click)="visibleAddPost()">Update Post</button>
     <button class="btn" (click)="visibleDelete()">Delete Post</button>
-
   </div>
     <div *ngIf="addPost">
         <app-post></app-post>
@@ -22,7 +21,7 @@
               <h3 class="title" id="staticBackdropLabel">What post do you want to see??</h3>
             </div>
             <div>
-              <form  (submit)="formSubmitDelete()" class="" method="get" id="postId">
+              <form  (submit)="formSubmitSearch()" class="" method="get" id="postId">
                 <input name="postId" type="text" placeholder="Post Id" [(ngModel)]="postId"/>
               </form>
             </div>
@@ -40,7 +39,7 @@
               <h3 class="title" id="staticBackdropLabel">What post do you want to delete??</h3>
             </div>
             <div>
-              <form  (submit)="formSubmit()" class="" method="get" id="postId">
+              <form  (submit)="formSubmitDelete()" class="" method="get" id="postId">
                 <input name="postId" type="text" placeholder="Post Id" [(ngModel)]="postId"/>
               </form>
             </div>

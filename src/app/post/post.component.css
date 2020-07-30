@@ -1,0 +1,32 @@
+.modal {
+    background-color: #a5a5a5; /* Gray */
+    width: 30%;
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    /* IMPORTANTE */
+    text-align: center;
+  }
+  
+  .title {
+    color: black; 
+    font-weight: bold;
+    
+  }
+  
+  .footer {
+    margin-top: 10px
+  }
+  
+  .btn-form {
+    border-radius : 50px; 
+  }
+  
+  .center {
+    text-align: center; 
+    font-weight: bold;
+    font-size: 20pt;
+    color: gray;
+    margin-top: 20px;
+  }
+  

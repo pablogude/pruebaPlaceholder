@@ -27,42 +27,48 @@ export class HomeComponent implements OnInit {
   }
 
   public visibleList(){
-    if(this.addPost||this.isSearchable||this.listOnePost) {
+    if(this.addPost||this.isSearchable||this.listOnePost||this.isErasable) {
       this.addPost = false;
       this.isSearchable = false; 
       this.listOnePost = false 
+      this.isErasable = false
     }
     this.listPost = !this.listPost; 
   }
 
   public visibleAddPost() {
 
-    if(this.listPost||this.isSearchable) {
-      this.listPost = false;
-      this.isSearchable = false;  
+    if(this.isSearchable||this.listOnePost||this.listPost||this.isErasable) {
+      this.isSearchable = false; 
+      this.listOnePost = false 
+      this.listPost = false; 
+      this.isErasable = false;
     }
     this.addPost = !this.addPost; 
   }
 
   public makeItSearchable() {
-    if(this.listPost||this.addPost) {
+    if(this.listPost||this.addPost||this.listOnePost||this.isErasable) {
       this.listPost = false; 
       this.addPost = false; 
+      this.listOnePost = false;
+      this.isErasable = false;
     }
     this.isSearchable = !this.isSearchable;
   }
 
-  public makeItErasable() {
-    if(this.isErasable) {
-      this.isErasable = !this.isErasable; 
-    }
-  }
-
   public visibleDelete() {
+    if(this.addPost||this.isSearchable||this.listOnePost||this.listPost) {
+      this.addPost = false;
+      this.isSearchable = false; 
+      this.listOnePost = false 
+      this.listPost = false; 
+    }
     this.isErasable = !this.isErasable; 
   }
 
-  public formSubmit() {
+
+  public formSubmitDelete() {
     if(
       !this.postId
     ) {
@@ -74,7 +80,14 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public formSubmitDelete() {
+  public deletePost() {
+    this.baseUrl = `https://jsonplaceholder.typicode.com/posts/${this.postId}`;
+    this.apiService.delete(this.baseUrl).subscribe(res => {
+    });
+
+  }
+
+  public formSubmitSearch() {
     if(
       !this.postId
     ) {
@@ -86,6 +99,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
+
   public searchPost() {
 
     this.localStorage.setToken(this.postId);
@@ -96,14 +110,5 @@ export class HomeComponent implements OnInit {
 
        
   }
-
-  public deletePost() {
-    this.baseUrl = `https://jsonplaceholder.typicode.com/posts/${this.postId}`;
-    console.log("A COUSA ESTA DE BORRAR", this.baseUrl); 
-    this.apiService.delete(this.baseUrl); 
-
-  }
-
-
 
 }

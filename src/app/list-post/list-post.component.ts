@@ -12,8 +12,6 @@ export class ListPostComponent implements OnInit {
 
   public baseUrl: string; 
   public posts: Post[];
-  public postId: string = "";  
-  public key: string = "--token-PruebasPlaceHolder";
 
   constructor(
     private apiService: ApiService, 
