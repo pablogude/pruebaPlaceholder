@@ -1,0 +1,57 @@
+<div>
+  <div>
+    <button class="btn" (click)="makeItSearchable()">See one Particular Post</button>
+    <button class="btn" (click)="visibleList()">List Posts</button>
+    <button class="btn" (click)="visibleAddPost()">Add Post</button>
+    <button class="btn">Update Post</button>
+    <button class="btn" (click)="visibleDelete()">Delete Post</button>
+
+  </div>
+    <div *ngIf="addPost">
+        <app-post></app-post>
+    </div>
+    <div *ngIf="listPost">
+        <h3 class="center">List Post</h3>
+        <app-list-post></app-list-post>
+    </div>
+    <div *ngIf="formError" >{{ formError }}</div>
+    <div *ngIf="isSearchable" class="modal" id="staticBackdrop" data-backdrop="static" role="dialog">
+        <div class="modal-dialog w-100 mx-auto" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="title" id="staticBackdropLabel">What post do you want to see??</h3>
+            </div>
+            <div>
+              <form  (submit)="formSubmitDelete()" class="" method="get" id="postId">
+                <input name="postId" type="text" placeholder="Post Id" [(ngModel)]="postId"/>
+              </form>
+            </div>
+            <div class="footer">
+              <button class="btn-form" (click)="makeItSearchable()" id="cancelMessage" data-dismiss="modal">Cancel</button>
+              <button class="btn-form" (click)="searchPost()" id="sendMessage" type="submit" form="postId" >Search Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="isErasable" class="modal" id="staticBackdrop" data-backdrop="static" role="dialog">
+        <div class="modal-dialog w-100 mx-auto" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="title" id="staticBackdropLabel">What post do you want to delete??</h3>
+            </div>
+            <div>
+              <form  (submit)="formSubmit()" class="" method="get" id="postId">
+                <input name="postId" type="text" placeholder="Post Id" [(ngModel)]="postId"/>
+              </form>
+            </div>
+            <div class="footer">
+              <button class="btn-form" (click)="makeItErasable()" id="cancelMessage" data-dismiss="modal">Cancel</button>
+              <button class="btn-form" (click)="deletePost()" id="sendMessage" type="submit" form="postId" >Delete Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="listOnePost">
+        <app-list-one-post></app-list-one-post>
+      </div>
+</div>
