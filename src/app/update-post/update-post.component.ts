@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../post';
 import { ApiService } from '../services/api.service';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  selector: 'app-update-post',
+  templateUrl: './update-post.component.html',
+  styleUrls: ['./update-post.component.css']
 })
-export class PostComponent implements OnInit {
+export class UpdatePostComponent implements OnInit {
+
   public baseUrl: string; 
-  newPost : Post; 
-  postId: string;
-  formError : string = "";  
+  formError: string = "";
   public body = {
     id: "",
     title: "",
@@ -24,7 +22,6 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
   }
 
   public formSubmit() {
@@ -38,14 +35,12 @@ export class PostComponent implements OnInit {
     }
 
     if(!this.formError) {
-      this.createPost();
+      this.updatePost();
     }
   }
-
-  public createPost() {
-    console.log("CREANDOOOO0", this.body);
-    this.baseUrl = 'https://jsonplaceholder.typicode.com/posts/';
-    this.apiService.post(this.baseUrl,this.body).subscribe(res => {
+  public updatePost() {
+    this.baseUrl = `https://jsonplaceholder.typicode.com/posts/${this.body.id}`;
+    this.apiService.put(this.baseUrl,this.body).subscribe(res => {
     }); 
   }
 

@@ -3,7 +3,7 @@
     <div class="modal-dialog w-100 mx-auto" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="title" id="staticBackdropLabel">Create Post</h3>
+          <h3 class="title" id="staticBackdropLabel">Update Post</h3>
         </div>
         <div>
             <form  (submit)="formSubmit()" class="" method="get" id="postId">
@@ -15,7 +15,7 @@
         </div>
         <div class="footer">
           <button class="btn-form"  id="cancelMessage" data-dismiss="modal">Cancel</button>
-          <button class="btn-form" (click)="createPost()" id="sendMessage" type="submit" form="postId" >Create Post</button>
+          <button class="btn-form" (click)="updatePost()" id="sendMessage" type="submit" form="postId" >Update Post</button>
         </div>
       </div>
     </div>

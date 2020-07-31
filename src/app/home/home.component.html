@@ -1,14 +1,17 @@
 <div>
-  <div>
+  <div class="content">
     <button class="btn" (click)="makeItSearchable()">See one Particular Post</button>
     <button class="btn" (click)="visibleList()">List Posts</button>
     <button class="btn" (click)="visibleAddPost()">Add Post</button>
-    <button class="btn" (click)="visibleAddPost()">Update Post</button>
+    <button class="btn" (click)="visibleUpdatePost()">Update Post</button>
     <button class="btn" (click)="visibleDelete()">Delete Post</button>
   </div>
     <div *ngIf="addPost">
         <app-post></app-post>
     </div>
+    <div *ngIf="updatePost">
+      <app-update-post></app-update-post>
+  </div>
     <div *ngIf="listPost">
         <h3 class="center">List Post</h3>
         <app-list-post></app-list-post>

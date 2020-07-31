@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatCardModule,} from "@angular/material/card";
 import { HomeComponent } from './home/home.component';
 import { ListOnePostComponent } from './list-one-post/list-one-post.component';
+import { UpdatePostComponent } from './update-post/update-post.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ListOnePostComponent } from './list-one-post/list-one-post.component';
     PostComponent,
     ListPostComponent,
     HomeComponent,
-    ListOnePostComponent
+    ListOnePostComponent,
+    UpdatePostComponent
   ],
   imports: [
     BrowserModule,

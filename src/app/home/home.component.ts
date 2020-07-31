@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
  listOnePost: boolean = false; 
  listPost: boolean = false;
  addPost: boolean = false; 
+ updatePost: boolean = false; 
  isSearchable: boolean = false;
  isErasable: boolean = false; 
  postId:number; 
@@ -27,42 +28,57 @@ export class HomeComponent implements OnInit {
   }
 
   public visibleList(){
-    if(this.addPost||this.isSearchable||this.listOnePost||this.isErasable) {
+    if(this.addPost||this.isSearchable||this.listOnePost||this.isErasable||this.updatePost) {
       this.addPost = false;
       this.isSearchable = false; 
-      this.listOnePost = false 
-      this.isErasable = false
+      this.listOnePost = false;
+      this.isErasable = false;
+      this.updatePost = false; 
     }
     this.listPost = !this.listPost; 
   }
 
   public visibleAddPost() {
 
-    if(this.isSearchable||this.listOnePost||this.listPost||this.isErasable) {
+    if(this.isSearchable||this.listOnePost||this.listPost||this.isErasable||this.updatePost) {
       this.isSearchable = false; 
       this.listOnePost = false 
       this.listPost = false; 
       this.isErasable = false;
+      this.updatePost = false; 
     }
     this.addPost = !this.addPost; 
   }
 
+  public visibleUpdatePost() {
+    if(this.isSearchable||this.listOnePost||this.listPost||this.isErasable||this.addPost) {
+      this.isSearchable = false; 
+      this.listOnePost = false 
+      this.listPost = false; 
+      this.isErasable = false;
+      this.addPost = false; 
+    }
+    this.updatePost = !this.updatePost; 
+  }
+
   public makeItSearchable() {
-    if(this.listPost||this.addPost||this.listOnePost||this.isErasable) {
+    if(this.listPost||this.addPost||this.listOnePost||this.isErasable||this.updatePost) {
       this.listPost = false; 
       this.addPost = false; 
       this.listOnePost = false;
       this.isErasable = false;
+      this.updatePost = false; 
     }
     this.isSearchable = !this.isSearchable;
   }
 
   public visibleDelete() {
-    if(this.addPost||this.isSearchable||this.listOnePost||this.listPost) {
+    if(this.addPost||this.isSearchable||this.listOnePost||this.listPost||this.updatePost) {
       this.addPost = false;
       this.isSearchable = false; 
       this.listOnePost = false 
       this.listPost = false; 
+      this.updatePost = false; 
     }
     this.isErasable = !this.isErasable; 
   }
